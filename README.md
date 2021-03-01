@@ -22,6 +22,6 @@ $ yarn start
 ### Front-end
 ```bash
 $ cd front-end
-$ yarn start
+$ yarn dev
 ```
 Open [read more here](http://localhost:3001) in your browser to check out the app
