@@ -1,0 +1,24 @@
+ARG version=12.15.0-alpine3.11
+FROM node:$version
+
+RUN apk update
+
+WORKDIR /app
+
+COPY package*.json /app/
+
+RUN npm install
+
+COPY ./ /app/
+
+RUN npm run build
+
+ARG MONGO_URL
+ARG SERVICE_PORT
+ARG YELP_API_KEY
+
+ENV MONGO_URL=$MONGO_URL
+ENV SERVICE_PORT=$SERVICE_PORT
+ENV YELP_API_KEY=$YELP_API_KEY
+
+EXPOSE ${SERVICE_PORT}

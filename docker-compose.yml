@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+    command: npm run start:dev
+    env_file:
+      - .env
+    container_name: yelp-restaurants-api
+    volumes:
+    - ./src:/app/src
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+    depends_on:
+      - mongo
+    ports:
+    - ${SERVICE_PORT}:${SERVICE_PORT}
+    restart: 'always'
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data:/data/db
+    restart: 'always'
+

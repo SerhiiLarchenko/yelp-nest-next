@@ -61,3 +61,6 @@ lerna-debug.log*
 /front-end/npm-debug.log*
 /front-end/yarn-debug.log*
 /front-end/yarn-error.log*
+
+# Enviroment Variables
+.env
