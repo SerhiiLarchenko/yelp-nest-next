@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
-import { CategoryClass } from './categorie.class';
+import { CategoryClass } from './category.class';
 import { CoordinatesClass } from './coordinates.class';
 import { TransactionsEnum } from 'src/data-types/enums';
 import { BusinessLocationClass } from './business-location.class';
@@ -139,7 +139,7 @@ export class Business extends mongoose.Document {
     required: true,
     default: [],
   })
-  transactions: TransactionsEnum;
+  transactions: TransactionsEnum[];
 
   @ApiProperty({
     type: String,
