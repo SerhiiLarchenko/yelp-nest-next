@@ -11,7 +11,7 @@
     "react": { "version": "detect" },
     "import/resolver": {
       "node": {
-        "paths": ["src"]
+        "paths": ["."]
       }
     }
   },
@@ -20,11 +20,7 @@
     "node": true,
     "browser": true
   },
-  "extends": [
-    "airbnb-typescript",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["airbnb-typescript", "plugin:prettier/recommended"],
   "plugins": ["@typescript-eslint"],
   "rules": {
     "import/prefer-default-export": "off",
@@ -37,11 +33,12 @@
       { "usePrettierrc": true }
     ],
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
   },
   "overrides": [
     {
-      "files": ["src/store/*/slice.ts"],
+      "files": ["./store/*/slice.ts"],
       "rules": {
         "no-param-reassign": "off"
       }
