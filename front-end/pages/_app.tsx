@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
-const App = ({ Component, pageProps }): JSX.Element => {
+import type { AppProps } from 'next/app';
+
+const App = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />;
 };
 

@@ -1,9 +1,15 @@
+import { ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
 const siteTitle = 'Project Demo';
 
-const Layout = ({ children, home }) => {
+interface LayoutProps {
+  children: ReactNode;
+  home: boolean;
+}
+
+const Layout = ({ children, home }: LayoutProps) => {
   return (
     <>
       <Head>
