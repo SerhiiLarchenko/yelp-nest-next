@@ -12,7 +12,7 @@ async function bootstrap() {
     .setTitle('yelp-nest-next')
     .setDescription('The Yelp Restaurants API')
     .setVersion(version)
-    // .addSecurity('user-id', {
+    // .addSecurity('user-token', {
     //   type: 'apiKey',
     //   name: 'token',
     //   in: 'header',
