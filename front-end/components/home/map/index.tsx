@@ -1,37 +1,41 @@
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 
-import { Coordinates } from 'api/businesses/types';
+import { Business } from 'api/businesses/types';
 
-const Map = ({ coordinates }: { coordinates: Coordinates[] }) => {
+import { CardsList } from '../cards-list';
+import { mapContainerStyle, mapOptions } from './config';
+
+const Map = ({ businesses }: { businesses: Business[] }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`,
+    googleMapsApiKey: `${process.env.GOOGLE_API_KEY}`,
     language: 'en',
   });
 
-  if (isLoaded) {
-    return (
-      <GoogleMap
-        options={{
-          fullscreenControl: false,
-          mapTypeControl: false,
-          zoomControl: false,
-          streetViewControl: false,
-          disableDoubleClickZoom: true,
-          minZoom: 2.6,
-        }}
-        mapContainerStyle={{
-          height: '100%',
-          width: '100%',
-        }}
-      >
-        {coordinates.map(({ latitude: lat, longitude: lng }) => (
-          <Marker position={{ lat, lng }} />
-        ))}
-      </GoogleMap>
-    );
+  if (!isLoaded) {
+    return <div>Loading</div>;
   }
 
-  return <div>Loading</div>;
+  return (
+    <>
+      <CardsList businesses={businesses} />
+      <GoogleMap
+        options={mapOptions}
+        mapContainerStyle={mapContainerStyle}
+        zoom={4.8}
+        center={{ lat: -34.397, lng: 150.644 }}
+      >
+        {businesses.map(
+          ({
+            coordinates: { latitude: lat, longitude: lng },
+            id,
+            image_url: url,
+          }) => (
+            <Marker key={id} icon={{ url }} position={{ lat, lng }} />
+          )
+        )}
+      </GoogleMap>
+    </>
+  );
 };
 
 export { Map };
