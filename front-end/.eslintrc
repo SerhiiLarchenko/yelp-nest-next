@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": { "jsx": true }
+  },
+  "settings": {
+    "react": { "version": "detect" },
+    "import/resolver": {
+      "node": {
+        "paths": ["."]
+      }
+    }
+  },
+  "env": {
+    "amd": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": ["airbnb-typescript", "plugin:prettier/recommended"],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+      { "usePrettierrc": true }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
+  },
+  "overrides": [
+    {
+      "files": ["./store/*/slice.ts"],
+      "rules": {
+        "no-param-reassign": "off"
+      }
+    }
+  ]
+}
