@@ -8,7 +8,8 @@
     "start": "next start",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "compile": "tsc -p ./tsconfig.json",
-    "lint": "eslint ./**/*.{js,jsx,ts,tsx} --fix --cache --color --max-warnings=0"
+    "lint": "eslint ./**/*.{js,jsx,ts,tsx} --fix --cache --color --max-warnings=0",
+    "storybook": "start-storybook -c ./.storybook/ -p 3001"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
@@ -20,6 +21,7 @@
     "react-dom": "17.0.1",
     "remark": "^12.0.0",
     "remark-html": "^12.0.0",
+    "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
