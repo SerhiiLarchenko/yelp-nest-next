@@ -15,12 +15,11 @@ const Card = ({
 
       <StyledInner>
         <StyledTitle>{name}</StyledTitle>
-        <Rating rating={rating} reviewCount={reviewCount} />
-        <ul>
-          {categories.map(({ title }) => (
-            <li key={title}>{title}</li>
-          ))}
-        </ul>
+        <Rating
+          rating={rating}
+          reviewCount={reviewCount}
+          categories={categories}
+        />
       </StyledInner>
     </StyledCard>
   );

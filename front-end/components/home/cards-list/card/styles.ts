@@ -3,15 +3,15 @@ import styled, { css } from 'styled-components';
 import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
 
 const StyledCard = styled.li`
-  height: 128px;
+  min-height: 128px;
   display: flex;
   padding: 24px;
   box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
+  cursor: pointer;
 
   ${(p) => css`
     border: 1px solid ${p.theme.colors.border.card};
-    background-color: ${p.theme.colors.background.card};
   `}
 
   :not(:last-child) {
@@ -21,6 +21,7 @@ const StyledCard = styled.li`
 
 const StyledTitle = styled.p`
   font-weight: bold;
+  margin-bottom: 4px;
 `;
 
 const StyledImage = styled.div<{ imageUrl: string }>`

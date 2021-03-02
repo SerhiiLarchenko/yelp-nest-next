@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
-import { flex } from 'utils';
 
 const StyledRatingWrapper = styled.div`
   display: flex;
@@ -20,13 +19,24 @@ const StyledStarSvg = styled(StarSvg)`
 
 const StyledRatingItem = styled.li`
   :not(:last-child) {
-    margin-right: 8px;
+    margin-right: 4px;
   }
+`;
+
+const StyledReviewCount = styled.span`
+  font-size: 14px;
+  color: ${(p) => p.theme.colors.text.secondary};
+`;
+
+const StyledCategories = styled.p`
+  font-size: 14px;
 `;
 
 export {
   StyledStarSvg,
-  StyledRatingList,
   StyledRatingItem,
+  StyledRatingList,
+  StyledReviewCount,
   StyledRatingWrapper,
+  StyledCategories,
 };

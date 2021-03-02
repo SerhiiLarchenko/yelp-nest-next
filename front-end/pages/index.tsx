@@ -14,7 +14,7 @@ const Home = ({ businesses }: { businesses: Business[] }) => {
       </Head>
 
       <CardsList businesses={businesses} />
-      <Map />
+      <Map coordinates={businesses.map(({ coordinates }) => coordinates)} />
     </Layout>
   );
 };
