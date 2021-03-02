@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
 
-const StyledCard = styled.li`
+const Card = styled.li`
   min-height: 128px;
   display: flex;
   padding: 24px;
@@ -19,12 +19,12 @@ const StyledCard = styled.li`
   }
 `;
 
-const StyledTitle = styled.p`
+const Title = styled.p`
   font-weight: bold;
   margin-bottom: 4px;
 `;
 
-const StyledImage = styled.div<{ imageUrl: string }>`
+const Image = styled.div<{ imageUrl: string }>`
   min-width: 80px;
   min-height: 80px;
   margin-right: 16px;
@@ -32,15 +32,9 @@ const StyledImage = styled.div<{ imageUrl: string }>`
   background: url(${(p) => p.imageUrl}) no-repeat center / cover;
 `;
 
-const StyledStarSvg = styled(StarSvg)`
-  path: {
-    fill: ${(p) => p.theme.colors.primary};
-  }
-`;
-
-const StyledInner = styled.div`
+const Inner = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export { StyledCard, StyledStarSvg, StyledTitle, StyledImage, StyledInner };
+export { Card, Title, Image, Inner };

@@ -1,5 +1,5 @@
 import { Rating } from 'components/common';
-import { StyledCard, StyledTitle, StyledImage, StyledInner } from './styles';
+import * as S from './styles';
 import { CardProps } from './types';
 
 const Card = ({
@@ -10,18 +10,18 @@ const Card = ({
   reviewCount,
 }: CardProps) => {
   return (
-    <StyledCard>
-      <StyledImage imageUrl={imageUrl} />
+    <S.Card>
+      <S.Image imageUrl={imageUrl} />
 
-      <StyledInner>
-        <StyledTitle>{name}</StyledTitle>
+      <S.Inner>
+        <S.Title>{name}</S.Title>
         <Rating
           rating={rating}
           reviewCount={reviewCount}
           categories={categories}
         />
-      </StyledInner>
-    </StyledCard>
+      </S.Inner>
+    </S.Card>
   );
 };
 

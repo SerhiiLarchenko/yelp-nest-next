@@ -1,33 +1,26 @@
 import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
 
-import {
-  StyledRatingItem,
-  StyledRatingList,
-  StyledRatingWrapper,
-  StyledReviewCount,
-  StyledStarSvg,
-  StyledCategories,
-} from './styles';
+import * as S from './styles';
 import { RatingProps } from './types';
 
 const Rating = ({ rating, reviewCount, categories }: RatingProps) => {
   const wholeRating = Math.floor(rating);
-  const filledStars = new Array(wholeRating).fill(<StyledStarSvg />);
+  const filledStars = new Array(wholeRating).fill(<S.FilledStarSvg />);
   const emptyStars = new Array(5 - wholeRating).fill(<StarSvg />);
 
   return (
     <>
-      <StyledRatingWrapper>
-        <StyledRatingList>
+      <S.RatingWrapper>
+        <S.RatingList>
           {[...filledStars, ...emptyStars].map((icon, i) => (
-            <StyledRatingItem key={i}>{icon}</StyledRatingItem>
+            <S.RatingItem key={i}>{icon}</S.RatingItem>
           ))}
-        </StyledRatingList>
-        <StyledReviewCount>({reviewCount})</StyledReviewCount>
-      </StyledRatingWrapper>
-      <StyledCategories>
+        </S.RatingList>
+        <S.ReviewCount>({reviewCount})</S.ReviewCount>
+      </S.RatingWrapper>
+      <S.Categories>
         {categories.map(({ title }) => title).join(', ')}
-      </StyledCategories>
+      </S.Categories>
     </>
   );
 };
