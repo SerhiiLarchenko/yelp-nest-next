@@ -1,11 +1,13 @@
-import { PropsWithChildren } from 'react';
 import Head from 'next/head';
+import { ReactNode } from 'react';
 
-import { LinkTo } from '../link-to';
+import { ReactComponent as LogoSvg } from 'assets/icons/logo.svg';
+
+import { StyledHeader, StyledMain } from './styles';
 
 const siteTitle = 'Project Demo';
 
-const Layout = ({ children, home }: PropsWithChildren<{ home: boolean }>) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Head>
@@ -17,18 +19,17 @@ const Layout = ({ children, home }: PropsWithChildren<{ home: boolean }>) => {
             siteTitle
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+        />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header>
-        <h1>Home</h1>
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div>
-          <LinkTo href="/">← Back to home</LinkTo>
-        </div>
-      )}
+      <StyledHeader>
+        <LogoSvg />
+      </StyledHeader>
+      <StyledMain>{children}</StyledMain>
     </>
   );
 };
