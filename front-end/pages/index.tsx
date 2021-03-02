@@ -1,25 +1,40 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
-import { Layout, siteTitle } from 'components/common/layout';
+import { API } from 'api';
+// import { Restaurant } from 'api/restaurants/types';
+import { CardsList } from 'components/cards-list';
+import { Layout, siteTitle } from 'components/common';
 
-const Home = () => {
+const Home = ({ restaurants }) => {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section>
-        <h2>Blog</h2>
-      </section>
+
+      <CardsList restaurants={restaurants} />
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const restaurants = await API.restaurants.getRestaurants();
+
+    return {
+      props: {
+        restaurants,
+      },
+      serverSide: true,
+    };
+  } catch (e) {
+    console.error(e);
+
+    return {
+      props: { restaurants: {}, serverSide: true },
+    };
+  }
 };
 
 export default Home;

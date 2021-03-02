@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 const GlobalStyles = createGlobalStyle`
@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
 
     html {
       box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
 
     *, *::after, *::before {
@@ -20,6 +21,14 @@ const GlobalStyles = createGlobalStyle`
       &:focus-visible {
         outline: auto;
       }
+    }
+
+    body {
+      padding: 0 80px;
+      ${(p) => css`
+        background-color: ${p.theme.colors.background.basic};
+        color: ${p.theme.colors.text};
+      `}
     }
 
     a {

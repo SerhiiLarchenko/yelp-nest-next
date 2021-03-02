@@ -12,6 +12,8 @@
     "storybook": "start-storybook -c ./.storybook/ -p 3001"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.21.1",
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
