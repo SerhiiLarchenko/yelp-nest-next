@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 import { flex } from 'utils';
 
-const StyledHeader = styled.header`
+const Header = styled.header`
   ${flex.alignCenter}
   min-height: 96px;
+  margin-bottom: 24px;
 `;
 
-const StyledMain = styled.main`
+const Main = styled.main`
   display: flex;
+  flex-direction: column;
 `;
 
-export { StyledHeader, StyledMain };
+export { Header, Main };

@@ -6,8 +6,11 @@ const GlobalStyles = createGlobalStyle`
 
     html {
       box-sizing: border-box;
+      color: #040C35;
       font-family: 'Inter', sans-serif;
       line-height: 24px;
+      font-weight: 500;
+      font-size: 16px;
     }
 
     *, *::after, *::before {
@@ -40,7 +43,13 @@ const GlobalStyles = createGlobalStyle`
       list-style-type: none;
     }
 
+h1 {
+font: bold 48px / 56px "Inter";
+margin: 0px;
+}
+
     button {
+      outline: none;
       border: none;
       background-color: inherit;
     }

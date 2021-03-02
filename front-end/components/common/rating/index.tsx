@@ -1,7 +1,5 @@
-import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
-
+import { Icon } from '../icon';
 import {
-  StyledStarSvg,
   StyledRatingList,
   StyledRatingItem,
   StyledRatingWrapper,
@@ -15,8 +13,10 @@ const Rating = ({
   reviewCount: number;
 }) => {
   const wholeRating = Math.floor(rating);
-  const filledStars = new Array(wholeRating).fill(<StyledStarSvg />);
-  const emptyStars = new Array(5 - wholeRating).fill(<StarSvg />);
+  const filledStars = new Array(wholeRating).fill(
+    <Icon className="filled" icon="star" />
+  );
+  const emptyStars = new Array(5 - wholeRating).fill(<Icon icon="star" />);
 
   return (
     <StyledRatingWrapper>

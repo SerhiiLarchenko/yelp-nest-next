@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 
-import { ReactComponent as LogoSvg } from 'assets/icons/logo.svg';
+import { Icon } from 'components/common/icon';
 
-import { StyledHeader, StyledMain } from './styles';
+import * as S from './styles';
 
 const siteTitle = 'Project Demo';
 
@@ -26,10 +26,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <StyledHeader>
-        <LogoSvg />
-      </StyledHeader>
-      <StyledMain>{children}</StyledMain>
+      <S.Header>
+        <Icon icon="logo" />
+      </S.Header>
+      <S.Main>{children}</S.Main>
     </>
   );
 };

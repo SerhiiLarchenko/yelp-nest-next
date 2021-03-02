@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
-
 const StyledCard = styled.li`
   height: 128px;
   display: flex;
@@ -17,6 +15,12 @@ const StyledCard = styled.li`
   :not(:last-child) {
     margin-bottom: 24px;
   }
+
+  .filled {
+    path {
+      fill: ${(p) => p.theme.colors.primary};
+    }
+  }
 `;
 
 const StyledTitle = styled.p`
@@ -31,15 +35,9 @@ const StyledImage = styled.div<{ imageUrl: string }>`
   background: url(${(p) => p.imageUrl}) no-repeat center / cover;
 `;
 
-const StyledStarSvg = styled(StarSvg)`
-  path: {
-    fill: ${(p) => p.theme.colors.primary};
-  }
-`;
-
 const StyledInner = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export { StyledCard, StyledStarSvg, StyledTitle, StyledImage, StyledInner };
+export { StyledCard, StyledTitle, StyledImage, StyledInner };

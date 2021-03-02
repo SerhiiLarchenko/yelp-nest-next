@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
-import { flex } from 'utils';
-
 const StyledRatingWrapper = styled.div`
   display: flex;
 `;
@@ -10,11 +7,11 @@ const StyledRatingWrapper = styled.div`
 const StyledRatingList = styled.ul`
   display: flex;
   margin-right: 8px;
-`;
 
-const StyledStarSvg = styled(StarSvg)`
-  path {
-    fill: ${(p) => p.theme.colors.primary};
+  .filled {
+    path {
+      fill: ${(p) => p.theme.colors.primary};
+    }
   }
 `;
 
@@ -24,9 +21,4 @@ const StyledRatingItem = styled.li`
   }
 `;
 
-export {
-  StyledStarSvg,
-  StyledRatingList,
-  StyledRatingItem,
-  StyledRatingWrapper,
-};
+export { StyledRatingList, StyledRatingItem, StyledRatingWrapper };
