@@ -5,6 +5,7 @@ import { IBusinessCategory } from './business-category.interface';
 
 export interface IBusiness {
   id: string;
+  yelp_id: string;
   name: string;
   alias: string;
   image_url: string;

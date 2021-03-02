@@ -102,4 +102,17 @@ export class BusinessLocationClass {
     required: true,
   })
   display_address: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+    example: 'Madison Ave & 5th Ave',
+    description: 'Cross streets',
+  })
+  @Prop({
+    type: String,
+    required: true,
+    default: '',
+  })
+  cross_streets: string;
 }

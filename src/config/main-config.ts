@@ -5,4 +5,7 @@ export const mainConfig = (): any => ({
   database: {
     host: process.env.MONGO_URL,
   },
+  yelp: {
+    key: process.env.YELP_API_KEY,
+  },
 });

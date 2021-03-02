@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "parse-database": "ts-node -r dotenv/config scripts/dbparser/db-parser.ts"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.13",
@@ -26,6 +27,8 @@
     "@nestjs/mongoose": "^7.2.4",
     "@nestjs/platform-express": "^7.6.13",
     "@nestjs/swagger": "^4.7.15",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "mongoose": "^5.11.18",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

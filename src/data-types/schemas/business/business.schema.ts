@@ -4,8 +4,10 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import { CategoryClass } from './category.class';
 import { CoordinatesClass } from './coordinates.class';
-import { TransactionsEnum } from 'src/data-types/enums';
+import { TransactionsEnum } from '../../enums';
 import { BusinessLocationClass } from './business-location.class';
+import { BusinessWorkingHoursClass } from './business-working-hours.class';
+import { UserReviewClass } from './user-review.class';
 
 @Schema({
   timestamps: true,
@@ -32,6 +34,18 @@ export class Business extends mongoose.Document {
     description: 'Business ID',
   })
   id: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+    example: 'nXoaGAhH6tNDQEE871V-ig',
+    description: 'Yelp business ID',
+  })
+  @Prop({
+    type: String,
+    required: true,
+  })
+  yelp_id: string;
 
   @ApiProperty({
     type: String,
@@ -72,6 +86,24 @@ export class Business extends mongoose.Document {
 
   @ApiProperty({
     type: String,
+    isArray: true,
+    required: true,
+    example: [
+      'https://s3-media2.fl.yelpcdn.com/bphoto/ru79-OUEcTI2_yVQqZBTjQ/o.jpg',
+      'https://s3-media1.fl.yelpcdn.com/bphoto/b-vF6xK9yxBN8xOGyl7Hjw/o.jpg',
+      'https://s3-media2.fl.yelpcdn.com/bphoto/TsayL0pXJv2rANh1hBoOKw/o.jpg',
+    ],
+    description: 'Array of business photos',
+  })
+  @Prop({
+    type: () => [String],
+    required: true,
+    default: [],
+  })
+  photos: string[];
+
+  @ApiProperty({
+    type: String,
     required: true,
     example:
       'https://www.yelp.com/biz/central-park-new-york?adjust_creative=IIU2OAGcvIAHeNZd16hURw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IIU2OAGcvIAHeNZd16hURw',
@@ -96,12 +128,13 @@ export class Business extends mongoose.Document {
   review_count: number;
 
   @ApiProperty({
-    type: [CategoryClass],
+    type: () => [CategoryClass],
     required: true,
   })
   @Prop({
-    type: [CategoryClass],
+    type: () => [CategoryClass],
     required: true,
+    default: [],
   })
   categories: CategoryClass[];
 
@@ -129,13 +162,14 @@ export class Business extends mongoose.Document {
   coordinates: CoordinatesClass;
 
   @ApiProperty({
-    type: [TransactionsEnum],
+    enum: TransactionsEnum,
+    isArray: true,
     required: true,
     example: [TransactionsEnum.DELIVERY, TransactionsEnum.PICKUP],
     description: 'Available transactions',
   })
   @Prop({
-    type: [TransactionsEnum],
+    type: () => [TransactionsEnum],
     required: true,
     default: [],
   })
@@ -150,6 +184,7 @@ export class Business extends mongoose.Document {
   @Prop({
     type: String,
     required: true,
+    default: '',
   })
   price: string;
 
@@ -194,7 +229,36 @@ export class Business extends mongoose.Document {
     example: 5200.877004016517,
     description: '',
   })
+  @Prop({
+    type: Number,
+    required: true,
+    default: 0,
+  })
   distance: number;
+
+  @ApiProperty({
+    type: () => BusinessWorkingHoursClass,
+    required: true,
+    description: 'Working hours',
+  })
+  @Prop({
+    type: () => BusinessWorkingHoursClass,
+    required: true,
+    default: {},
+  })
+  working_hours: BusinessWorkingHoursClass;
+
+  @ApiProperty({
+    type: () => [UserReviewClass],
+    required: true,
+    description: "User's reviews array for the business",
+  })
+  @Prop({
+    type: () => [UserReviewClass],
+    required: true,
+    default: [],
+  })
+  reviews: UserReviewClass[];
 }
 
 export const BusinessSchema = SchemaFactory.createForClass(Business);
