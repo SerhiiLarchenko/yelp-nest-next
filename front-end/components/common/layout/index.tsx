@@ -1,15 +1,11 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+
+import { LinkTo } from '../link-to';
 
 const siteTitle = 'Project Demo';
 
-interface LayoutProps {
-  children: ReactNode;
-  home: boolean;
-}
-
-const Layout = ({ children, home }: LayoutProps) => {
+const Layout = ({ children, home }: PropsWithChildren<{ home: boolean }>) => {
   return (
     <>
       <Head>
@@ -30,9 +26,7 @@ const Layout = ({ children, home }: LayoutProps) => {
       <main>{children}</main>
       {!home && (
         <div>
-          <Link href="/" passHref>
-            <a href="replace">← Back to home</a>
-          </Link>
+          <LinkTo href="/">← Back to home</LinkTo>
         </div>
       )}
     </>
