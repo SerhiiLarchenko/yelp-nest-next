@@ -1,7 +1,7 @@
-import * as restaurants from './restaurants';
+import * as businesses from './businesses';
 
 const API = {
-  restaurants,
+  businesses,
 };
 
 export { API };

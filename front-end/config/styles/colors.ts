@@ -1,15 +1,14 @@
 const white = '#fafafa';
 const black = '#040c35;';
-const lightGrey = '#ebeae7';
 const standardRed = '#ce464d';
 
 const background = {
-  basic: lightGrey,
+  basic: white,
   card: white,
 };
 
 const border = {
-  card: 'e8e8e8',
+  card: '#e8e8e8',
 };
 
 const COLORS = {

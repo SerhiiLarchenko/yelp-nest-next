@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     html {
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+      line-height: 24px;
     }
 
     *, *::after, *::before {

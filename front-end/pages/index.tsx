@@ -2,37 +2,38 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 
 import { API } from 'api';
-// import { Restaurant } from 'api/restaurants/types';
-import { CardsList } from 'components/cards-list';
+import { CardsList, Map } from 'components/home';
 import { Layout, siteTitle } from 'components/common';
+import { Business } from 'api/businesses/types';
 
-const Home = ({ restaurants }) => {
+const Home = ({ businesses }: { businesses: Business[] }) => {
   return (
     <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
 
-      <CardsList restaurants={restaurants} />
+      <CardsList businesses={businesses} />
+      <Map />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const restaurants = await API.restaurants.getRestaurants();
+    const businesses = await API.businesses.getAllBusinesses();
 
     return {
       props: {
-        restaurants,
+        businesses,
+        serverSide: true,
       },
-      serverSide: true,
     };
   } catch (e) {
     console.error(e);
 
     return {
-      props: { restaurants: {}, serverSide: true },
+      props: { businesses: {}, serverSide: true },
     };
   }
 };
