@@ -1,15 +1,21 @@
 import { TransactionLabel } from 'components/common/labels';
 import { OpenButton } from 'components/common/buttons';
 import { Icon } from 'components/common/icon';
+import { Rating } from 'components/common';
 import { format } from 'utils';
+import { ExtendedBusiness } from 'api/businesses/types';
+
 import * as S from './styles';
 
-const CompanyInfo = () => (
+const CompanyInfo = ({
+  business: { name, rating, review_count },
+}: {
+  business: ExtendedBusiness;
+}) => (
   <S.Container>
     <div>
-      <h1>Katz's Delicatessen</h1>
-      <div>stars</div>
-      <S.Category>Delis, Sandwiches, Soup</S.Category>
+      <h1>{name}</h1>
+      <Rating rating={rating} reviewCount={review_count} />
     </div>
 
     <S.ServiceInfo>
