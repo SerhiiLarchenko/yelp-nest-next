@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-const RatingWrapper = styled.div`
-  display: flex;
-`;
-
 const RatingList = styled.ul`
   display: flex;
   margin-right: 8px;
@@ -21,13 +17,4 @@ const RatingItem = styled.li`
   }
 `;
 
-const ReviewCount = styled.span`
-  font-size: 14px;
-  color: ${(p) => p.theme.colors.text.secondary};
-`;
-
-const Categories = styled.p`
-  font-size: 14px;
-`;
-
-export { RatingItem, RatingList, ReviewCount, RatingWrapper, Categories };
+export { RatingItem, RatingList };

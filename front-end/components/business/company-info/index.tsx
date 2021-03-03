@@ -1,45 +1,70 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import { TransactionLabel } from 'components/common/labels';
 import { OpenButton } from 'components/common/buttons';
 import { Icon } from 'components/common/icon';
-import { Rating } from 'components/common';
-import { format } from 'utils';
-import { ExtendedBusiness } from 'api/businesses/types';
+import { LinkTo, Rating } from 'components/common';
+import { ExtendedBusiness, WeekDays } from 'api/businesses/types';
 
 import * as S from './styles';
 
 const CompanyInfo = ({
-  business: { name, rating, review_count },
+  business: {
+    url,
+    name,
+    phone,
+    rating,
+    location,
+    categories,
+    review_count,
+    transactions,
+    display_phone,
+    working_hours,
+  },
 }: {
   business: ExtendedBusiness;
 }) => (
   <S.Container>
-    <div>
+    <S.Header>
+      <LinkTo href="/">
+        <Icon icon="arrow-left" />
+      </LinkTo>
+
       <h1>{name}</h1>
-      <Rating rating={rating} reviewCount={review_count} />
-    </div>
+      <S.RatingWrapper>
+        <Rating rating={rating} />
+        <S.RatingNumber>{rating.toFixed(1)}</S.RatingNumber>
+        <span>({review_count})</span>
+      </S.RatingWrapper>
+
+      <S.Categories>
+        {categories.map(({ title }) => title).join(', ')}
+      </S.Categories>
+    </S.Header>
 
     <S.ServiceInfo>
       <S.ServiceInfoItem>
         <Icon icon="home" />
-        <S.Address title="205 E Houston St, New York, NY 10002">
-          205 E Houston St, New York, NY 10002
+        <S.Address title={location.display_address}>
+          {location.display_address}
         </S.Address>
-        <TransactionLabel className="with-margin-right">
-          Delivery
-        </TransactionLabel>
-        <TransactionLabel>Pickup</TransactionLabel>
+        <S.TransactionsList>
+          {transactions.map((item) => (
+            <TransactionLabel key={uuidv4()}>{item}</TransactionLabel>
+          ))}
+        </S.TransactionsList>
       </S.ServiceInfoItem>
       <S.ServiceInfoItem>
         <Icon icon="smartphone" />
-        <span>{format.telephoneUSAFormater('+16468860601')}</span>
+        <a href={`tel:${phone}`}>{display_phone || 'No phone'}</a>
       </S.ServiceInfoItem>
       <S.ServiceInfoItem>
         <Icon icon="clock" />
-        <span>6am - 1am (All days)</span>
+        {working_hours.map(({ days }) => days.map((day) => WeekDays[day]))}
       </S.ServiceInfoItem>
     </S.ServiceInfo>
 
-    <OpenButton iconPosition="left">
+    <OpenButton as="a" href={url} target="_blank" iconPosition="left">
       <Icon icon="yelp" />
       <span>Open on Yelp</span>
     </OpenButton>

@@ -17,11 +17,14 @@ const Card = ({
 
         <S.Inner>
           <S.Title>{name}</S.Title>
-          <Rating
-            rating={rating}
-            reviewCount={reviewCount}
-            categories={categories}
-          />
+          <S.RatingWrapper>
+            <Rating rating={rating} />
+            <S.ReviewCount>({reviewCount})</S.ReviewCount>
+          </S.RatingWrapper>
+
+          <S.Categories>
+            {categories.map(({ title }) => title).join(', ')}
+          </S.Categories>
         </S.Inner>
       </LinkTo>
     </S.Card>

@@ -3,13 +3,20 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: grid;
   grid-row-gap: 40px;
+  margin-bottom: 40px;
 `;
 
-const Category = styled.p`
-  font-weight: 600;
+const Header = styled.header`
+  position: relative;
+
+  & > a {
+    position: absolute;
+    left: -56px;
+    top: 16px;
+  }
 `;
 
-const ServiceInfo = styled.ul`
+const ServiceInfo = styled.div`
   display: grid;
   grid-row-gap: 16px;
   background: #fafafa;
@@ -37,12 +44,39 @@ const ServiceInfoItem = styled.div`
   }
 `;
 
-const Address = styled.span`
+const Address = styled.address`
   width: 220px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   margin-right: 8px;
+  font-style: initial;
 `;
 
-export { Address, Container, ServiceInfo, Category, ServiceInfoItem };
+const TransactionsList = styled.ul`
+  display: flex;
+`;
+
+const RatingNumber = styled.span`
+  margin-right: 8px;
+`;
+
+const Categories = styled.p`
+  font-weight: 600;
+`;
+
+const RatingWrapper = styled.div`
+  display: flex;
+`;
+
+export {
+  Header,
+  Address,
+  Container,
+  Categories,
+  ServiceInfo,
+  RatingNumber,
+  RatingWrapper,
+  ServiceInfoItem,
+  TransactionsList,
+};

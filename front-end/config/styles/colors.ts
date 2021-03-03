@@ -17,6 +17,7 @@ const COLORS = {
   text,
   background: white,
   border,
+  disabledSliderBtn: '#d6d7da',
 };
 
 export { COLORS };

@@ -54,4 +54,17 @@ const Inner = styled.div`
   flex-direction: column;
 `;
 
-export { Card, Title, Image, Inner };
+const RatingWrapper = styled.div`
+  display: flex;
+`;
+
+const ReviewCount = styled.span`
+  font-size: 14px;
+  color: ${(p) => p.theme.colors.text.secondary};
+`;
+
+const Categories = styled.p`
+  font-size: 14px;
+`;
+
+export { Card, Title, Image, Inner, RatingWrapper, ReviewCount, Categories };

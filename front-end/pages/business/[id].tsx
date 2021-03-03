@@ -1,14 +1,29 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import { API } from 'api';
-import { CompanyInfo, Reviews } from 'components/business';
+import { GoogleMap } from 'components/common';
+import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
+
+import * as S from './styles';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
     <>
-      <CompanyInfo business={business} />
-      <Reviews />
+      <Head>
+        <title>{business.name}</title>
+      </Head>
+
+      <S.InfoWrapper>
+        <CompanyInfo business={business} />
+        <Reviews reviews={business.reviews} />
+      </S.InfoWrapper>
+
+      <div>
+        <ImageSlider photos={business.photos} />
+        <GoogleMap size="small" item={business} />
+      </div>
     </>
   );
 };

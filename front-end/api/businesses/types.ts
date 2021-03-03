@@ -20,30 +20,31 @@ interface BusinessLocation {
   cross_streets: string;
 }
 
+export enum WeekDays {
+  Mon = 'Monday',
+  Tue = 'Tuesday',
+  Wed = 'Wednesday',
+  Thu = 'Thursday',
+  Fri = 'Friday',
+  Sat = 'Saturday',
+  Sun = 'Sunday',
+}
+
 interface DayWorkingHours {
-  start: string;
-  end: string;
-  is_overnight: boolean;
+  break_end: string;
+  break_start: string;
+  days: WeekDays[];
+  end: 'string';
+  start: 'string';
 }
 
-interface BusinessWorkingHours {
-  sun: DayWorkingHours;
-  mon: DayWorkingHours;
-  tue: DayWorkingHours;
-  wed: DayWorkingHours;
-  thu: DayWorkingHours;
-  fri: DayWorkingHours;
-  sat: DayWorkingHours;
-  hours_type: string;
-}
-
-interface BusinessReviewer {
+export interface BusinessReviewer {
   name: string;
   image_url: string;
   profile_url: string;
 }
 
-interface UserReview {
+export interface UserReview {
   text: string;
   rating: number;
   time_created: Date;
@@ -77,6 +78,6 @@ export interface ExtendedBusiness extends Business {
   phone: string;
   display_phone: string;
   distance: number;
-  working_hours: BusinessWorkingHours;
+  working_hours: DayWorkingHours[];
   reviews: UserReview[];
 }

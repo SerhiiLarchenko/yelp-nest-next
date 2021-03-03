@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      padding: 0 80px;
+      padding: 0 80px 80px;
       ${(p) => css`
         background-color: ${p.theme.colors.background};
         color: ${p.theme.colors.text.basic};

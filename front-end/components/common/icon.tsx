@@ -8,6 +8,9 @@ import { ReactComponent as HomeIcon } from 'public/icons/home.svg';
 import { ReactComponent as SmartphoneIcon } from 'public/icons/smartphone.svg';
 import { ReactComponent as ViewIcon } from 'public/icons/view.svg';
 import { ReactComponent as YelpIcon } from 'public/icons/yelp.svg';
+import { ReactComponent as ArrowLeft } from 'public/icons/arrow-left.svg';
+import { ReactComponent as ChevronLeft } from 'public/icons/chevron-left.svg';
+import { ReactComponent as ChevronRight } from 'public/icons/chevron-right.svg';
 
 const getIcon = (iconName: string) => {
   switch (iconName) {
@@ -25,6 +28,12 @@ const getIcon = (iconName: string) => {
       return <ViewIcon />;
     case 'yelp':
       return <YelpIcon />;
+    case 'arrow-left':
+      return <ArrowLeft />;
+    case 'chevron-left':
+      return <ChevronLeft />;
+    case 'chevron-right':
+      return <ChevronRight />;
 
     default:
       return <span />;

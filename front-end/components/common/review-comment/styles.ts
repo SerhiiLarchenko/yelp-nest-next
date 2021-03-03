@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+import { flex } from 'utils';
 
-const Container = styled.div`
+const Container = styled.li`
   display: flex;
   flex-direction: column;
+
+  :not(:last-child) {
+    margin-bottom: 40px;
+  }
 `;
 
 const UserInfo = styled.div`
@@ -25,8 +30,6 @@ const Column = styled.div`
 `;
 
 const NickName = styled.span`
-  font-size: 16px;
-  line-height: 24px;
   color: #000000;
 `;
 
@@ -34,7 +37,19 @@ const CreationDate = styled.p`
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #72758a;
+  color: ${(p) => p.theme.colors.text.secondary};
 `;
 
-export { Container, UserInfo, Avatar, NickName, CreationDate, Column };
+const RatingWrapper = styled.div`
+  ${flex.alignCenter}
+`;
+
+export {
+  Avatar,
+  Column,
+  UserInfo,
+  NickName,
+  Container,
+  CreationDate,
+  RatingWrapper,
+};
