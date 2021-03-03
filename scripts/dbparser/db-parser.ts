@@ -31,34 +31,55 @@ const reqParams = {
 
     console.log('Adding businesses to DB');
 
-    const businessesAdded = await Promise.allSettled(
-      businesses.map(async (business) => {
-        const businessDetails = await getBusinessDetails(business.id);
-        const businessReviews = await getBusinessReviews(business.id);
+    const businessesAdded: any = await Promise.allSettled(
+      businesses.map(async (business, i) => {
+        await new Promise((res, rej) => {
+          setTimeout(async () => {
+            try {
+              const businessDetails = await getBusinessDetails(business.id);
+              const businessReviews = await getBusinessReviews(business.id);
 
-        const updatedBusiness = {
-          ...business,
-          _id: mongoose.Types.ObjectId(),
-          yelp_id: business.id,
-          location: {
-            ...business.location,
-            display_address: business.location.display_address.join(', '),
-            cross_streets: businessDetails.location.cross_streets,
-          },
-          photos: businessDetails.photos,
-          working_hours: workingHoursAdapter(businessDetails.hours),
-          reviews: reviewsAdapter(businessReviews),
-        };
+              const updatedBusiness = {
+                ...business,
+                yelp_id: business.id,
+                location: {
+                  ...business.location,
+                  display_address: business.location.display_address.join(', '),
+                  cross_streets: businessDetails.location.cross_streets,
+                },
+                photos: businessDetails.photos,
+                working_hours: workingHoursAdapter(businessDetails.hours),
+                reviews: reviewsAdapter(businessReviews),
+              };
 
-        return businessModel.findOneAndUpdate(
-          { yelp_id: business.id },
-          updatedBusiness,
-          { new: true, upsert: true, useFindAndModify: false },
-        );
+              const newBusiness = await businessModel.findOneAndUpdate(
+                { yelp_id: business.id },
+                updatedBusiness,
+                { new: true, upsert: true, useFindAndModify: false },
+              );
+
+              console.log(
+                `Business with yelp_id: ${business.id} was added successfuly!`,
+              );
+              res(newBusiness);
+            } catch (error) {
+              console.log(
+                `Error occured while adding business with yelp_id: ${business.id}`,
+              );
+              console.log(error);
+              rej(error);
+            }
+          }, i * 500);
+        });
       }),
     );
 
-    console.warn(`Updated ${businessesAdded.length} businesses`);
+    console.warn(
+      `Updated ${
+        businessesAdded.filter((business) => business.status === 'fulfilled')
+          .length
+      } of ${businessesAdded.length} businesses`,
+    );
   } catch (error) {
     console.error(error);
   }
