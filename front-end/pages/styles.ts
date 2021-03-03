@@ -30,12 +30,13 @@ const GlobalStyles = createGlobalStyle`
     body {
       padding: 0 80px;
       ${(p) => css`
-        background-color: ${p.theme.colors.background.basic};
-        color: ${p.theme.colors.text};
+        background-color: ${p.theme.colors.background};
+        color: ${p.theme.colors.text.basic};
       `}
     }
 
     a {
+      color: inherit;
       text-decoration: none;
     }
 

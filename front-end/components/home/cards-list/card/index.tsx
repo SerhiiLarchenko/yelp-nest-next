@@ -1,5 +1,5 @@
-import { Rating } from 'components/common';
-import { StyledCard, StyledTitle, StyledImage, StyledInner } from './styles';
+import { LinkTo, Rating } from 'components/common';
+import * as S from './styles';
 import { CardProps } from './types';
 
 const Card = ({
@@ -8,21 +8,23 @@ const Card = ({
   rating,
   categories,
   reviewCount,
+  id,
 }: CardProps) => {
   return (
-    <StyledCard>
-      <StyledImage imageUrl={imageUrl} />
+    <S.Card>
+      <LinkTo href={`/business/${id}`}>
+        <S.Image imageUrl={imageUrl} />
 
-      <StyledInner>
-        <StyledTitle>{name}</StyledTitle>
-        <Rating rating={rating} reviewCount={reviewCount} />
-        <ul>
-          {categories.map(({ title }) => (
-            <li key={title}>{title}</li>
-          ))}
-        </ul>
-      </StyledInner>
-    </StyledCard>
+        <S.Inner>
+          <S.Title>{name}</S.Title>
+          <Rating
+            rating={rating}
+            reviewCount={reviewCount}
+            categories={categories}
+          />
+        </S.Inner>
+      </LinkTo>
+    </S.Card>
   );
 };
 

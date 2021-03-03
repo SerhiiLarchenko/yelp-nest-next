@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const StyledRatingWrapper = styled.div`
+const RatingWrapper = styled.div`
   display: flex;
 `;
 
-const StyledRatingList = styled.ul`
+const RatingList = styled.ul`
   display: flex;
   margin-right: 8px;
 
@@ -15,10 +15,19 @@ const StyledRatingList = styled.ul`
   }
 `;
 
-const StyledRatingItem = styled.li`
+const RatingItem = styled.li`
   :not(:last-child) {
-    margin-right: 8px;
+    margin-right: 4px;
   }
 `;
 
-export { StyledRatingList, StyledRatingItem, StyledRatingWrapper };
+const ReviewCount = styled.span`
+  font-size: 14px;
+  color: ${(p) => p.theme.colors.text.secondary};
+`;
+
+const Categories = styled.p`
+  font-size: 14px;
+`;
+
+export { RatingItem, RatingList, ReviewCount, RatingWrapper, Categories };
