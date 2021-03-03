@@ -7,21 +7,15 @@ const CardsList = ({ businesses }: { businesses: Business[] }) => {
   return (
     <StyledCardsList>
       {businesses.map(
-        ({
-          id,
-          name,
-          categories,
-          rating,
-          review_count: reviewCount,
-          image_url: imageUrl,
-        }) => (
+        ({ id, name, categories, rating, review_count, image_url }) => (
           <Card
             key={id}
             name={name}
             categories={categories}
             rating={rating}
-            reviewCount={reviewCount}
-            imageUrl={imageUrl}
+            reviewCount={review_count}
+            imageUrl={image_url}
+            id={id}
           />
         )
       )}

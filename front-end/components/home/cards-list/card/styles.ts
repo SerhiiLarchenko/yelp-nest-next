@@ -1,29 +1,41 @@
 import styled, { css } from 'styled-components';
 
-import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
+const Card = styled.li`
+  min-height: 128px;
 
-const StyledCard = styled.li`
-  height: 128px;
-  display: flex;
-  padding: 24px;
   box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-
-  ${(p) => css`
-    border: 1px solid ${p.theme.colors.border.card};
-    background-color: ${p.theme.colors.background.card};
-  `}
+  cursor: pointer;
 
   :not(:last-child) {
     margin-bottom: 24px;
   }
+
+  :hover {
+    transform: translateX(5px);
+  }
+
+  ${(p) => css`
+    transition: ${p.theme.transition.default};
+    border: 1px solid ${p.theme.colors.border.card.default};
+
+    :hover {
+      border-color: ${p.theme.colors.border.card.hover};
+    }
+  `}
+
+  & > a {
+    display: flex;
+    padding: 24px;
+  }
 `;
 
-const StyledTitle = styled.p`
+const Title = styled.p`
   font-weight: bold;
+  margin-bottom: 4px;
 `;
 
-const StyledImage = styled.div<{ imageUrl: string }>`
+const Image = styled.div<{ imageUrl: string }>`
   min-width: 80px;
   min-height: 80px;
   margin-right: 16px;
@@ -31,15 +43,9 @@ const StyledImage = styled.div<{ imageUrl: string }>`
   background: url(${(p) => p.imageUrl}) no-repeat center / cover;
 `;
 
-const StyledStarSvg = styled(StarSvg)`
-  path: {
-    fill: ${(p) => p.theme.colors.primary};
-  }
-`;
-
-const StyledInner = styled.div`
+const Inner = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export { StyledCard, StyledStarSvg, StyledTitle, StyledImage, StyledInner };
+export { Card, Title, Image, Inner };
