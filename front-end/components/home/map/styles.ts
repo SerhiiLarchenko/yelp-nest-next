@@ -1,3 +1,8 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-export {};
+const MapWrapper = styled.div`
+  height: 810px;
+  width: 100%;
+`;
+
+export { MapWrapper };

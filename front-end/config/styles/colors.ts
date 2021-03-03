@@ -6,7 +6,10 @@ const grey = '#72758a';
 const text = { basic: black, secondary: grey };
 
 const border = {
-  card: '#e8e8e8',
+  card: {
+    default: '#e8e8e8',
+    hover: '#cdcdcd',
+  },
 };
 
 const COLORS = {

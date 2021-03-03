@@ -1,9 +1,3 @@
-const mapContainerStyle = {
-  width: '100%',
-  height: '810px',
-  borderRadius: '16px',
-};
-
 const mapStyles = [
   {
     stylers: [
@@ -50,4 +44,4 @@ const mapOptions = {
   disableDoubleClickZoom: true,
 };
 
-export { mapContainerStyle, mapOptions };
+export { mapOptions };

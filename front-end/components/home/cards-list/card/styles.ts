@@ -1,21 +1,32 @@
 import styled, { css } from 'styled-components';
 
-import { ReactComponent as StarSvg } from 'assets/icons/star.svg';
-
 const Card = styled.li`
   min-height: 128px;
-  display: flex;
-  padding: 24px;
+
   box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   cursor: pointer;
 
-  ${(p) => css`
-    border: 1px solid ${p.theme.colors.border.card};
-  `}
-
   :not(:last-child) {
     margin-bottom: 24px;
+  }
+
+  :hover {
+    transform: translateX(5px);
+  }
+
+  ${(p) => css`
+    transition: ${p.theme.transition.default};
+    border: 1px solid ${p.theme.colors.border.card.default};
+
+    :hover {
+      border-color: ${p.theme.colors.border.card.hover};
+    }
+  `}
+
+  & > a {
+    display: flex;
+    padding: 24px;
   }
 `;
 

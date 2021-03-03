@@ -1,39 +1,37 @@
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import GoogleMapReact from 'google-map-react';
 
+import { Marker } from 'components/common';
 import { Business } from 'api/businesses/types';
 
+import * as S from './styles';
 import { CardsList } from '../cards-list';
-import { mapContainerStyle, mapOptions } from './config';
+import { mapOptions } from './config';
 
 const Map = ({ businesses }: { businesses: Business[] }) => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: `${process.env.GOOGLE_API_KEY}`,
-    language: 'en',
-  });
-
-  if (!isLoaded) {
-    return <div>Loading</div>;
-  }
-
   return (
     <>
       <CardsList businesses={businesses} />
-      <GoogleMap
-        options={mapOptions}
-        mapContainerStyle={mapContainerStyle}
-        zoom={4.8}
-        center={{ lat: -34.397, lng: 150.644 }}
-      >
-        {businesses.map(
-          ({
-            coordinates: { latitude: lat, longitude: lng },
-            id,
-            image_url: url,
-          }) => (
-            <Marker key={id} icon={{ url }} position={{ lat, lng }} />
-          )
-        )}
-      </GoogleMap>
+      <S.MapWrapper>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
+          defaultCenter={{
+            lat: businesses[0].coordinates.latitude,
+            lng: businesses[0].coordinates.longitude,
+          }}
+          defaultZoom={12}
+          options={mapOptions}
+        >
+          {businesses.map(
+            ({
+              coordinates: { latitude: lat, longitude: lng },
+              id,
+              image_url,
+            }) => (
+              <Marker key={id} lat={lat} lng={lng} url={image_url} />
+            )
+          )}
+        </GoogleMapReact>
+      </S.MapWrapper>
     </>
   );
 };
