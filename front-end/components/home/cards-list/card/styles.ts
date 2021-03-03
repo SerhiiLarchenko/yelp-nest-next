@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
 const Card = styled.li`
-  min-height: 128px;
-
   box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   cursor: pointer;

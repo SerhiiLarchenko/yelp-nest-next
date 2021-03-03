@@ -4,7 +4,6 @@ import { StyledCardsList } from './styles';
 import { Card } from './card';
 
 const CardsList = ({ businesses }: { businesses: Business[] }) => {
-  console.log(businesses);
   return (
     <StyledCardsList>
       {businesses.map(

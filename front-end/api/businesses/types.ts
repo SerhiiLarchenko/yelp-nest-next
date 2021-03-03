@@ -21,21 +21,21 @@ interface BusinessLocation {
 }
 
 export enum WeekDays {
-  Mon = 'Monday',
-  Tue = 'Tuesday',
-  Wed = 'Wednesday',
-  Thu = 'Thursday',
-  Fri = 'Friday',
-  Sat = 'Saturday',
-  Sun = 'Sunday',
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat,
+  Sun,
 }
 
 interface DayWorkingHours {
   break_end: string;
   break_start: string;
   days: WeekDays[];
-  end: 'string';
-  start: 'string';
+  end: string;
+  start: string;
 }
 
 export interface BusinessReviewer {
@@ -53,7 +53,6 @@ export interface UserReview {
 
 enum TransactionsEnum {
   DELIVERY = 'delivery',
-  DELIVERY1 = 'Delivery',
   PICKUP = 'pickup',
 }
 

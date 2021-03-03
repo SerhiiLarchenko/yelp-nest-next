@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 const StyledCardsList = styled.ul`
-  min-width: 360px;
-  margin-right: 40px;
+  width: 360px;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 96px;
+  bottom: 0;
 `;
 
 export { StyledCardsList };

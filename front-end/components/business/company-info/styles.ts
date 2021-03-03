@@ -69,6 +69,10 @@ const RatingWrapper = styled.div`
   display: flex;
 `;
 
+const WorkingHours = styled.p`
+  width: 100%;
+`;
+
 export {
   Header,
   Address,
@@ -76,6 +80,7 @@ export {
   Categories,
   ServiceInfo,
   RatingNumber,
+  WorkingHours,
   RatingWrapper,
   ServiceInfoItem,
   TransactionsList,

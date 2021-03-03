@@ -4,8 +4,9 @@ import { TransactionLabel } from 'components/common/labels';
 import { OpenButton } from 'components/common/buttons';
 import { Icon } from 'components/common/icon';
 import { LinkTo, Rating } from 'components/common';
-import { ExtendedBusiness, WeekDays } from 'api/businesses/types';
+import { ExtendedBusiness } from 'api/businesses/types';
 
+import { weekDays } from './helpers';
 import * as S from './styles';
 
 const CompanyInfo = ({
@@ -60,7 +61,14 @@ const CompanyInfo = ({
       </S.ServiceInfoItem>
       <S.ServiceInfoItem>
         <Icon icon="clock" />
-        {working_hours.map(({ days }) => days.map((day) => WeekDays[day]))}
+        <S.WorkingHours>
+          {working_hours.map(
+            ({ end, start, days }) =>
+              `${start} - ${end} (${days
+                .map((day) => weekDays[day])
+                .join(', ')})`
+          )}
+        </S.WorkingHours>
       </S.ServiceInfoItem>
     </S.ServiceInfo>
 
