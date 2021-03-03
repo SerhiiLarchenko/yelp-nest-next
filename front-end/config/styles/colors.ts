@@ -1,20 +1,21 @@
 const white = '#fafafa';
 const black = '#040c35;';
 const standardRed = '#ce464d';
+const grey = '#72758a';
 
-const background = {
-  basic: white,
-  card: white,
-};
+const text = { basic: black, secondary: grey };
 
 const border = {
-  card: '#e8e8e8',
+  card: {
+    default: '#e8e8e8',
+    hover: '#cdcdcd',
+  },
 };
 
 const COLORS = {
   primary: standardRed,
-  text: black,
-  background,
+  text,
+  background: white,
   border,
 };
 

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 
 import { API } from 'api';
-import { CardsList, Map } from 'components/home';
+import { Map } from 'components/home';
 import { Layout, siteTitle } from 'components/common';
 import { Business } from 'api/businesses/types';
 
@@ -13,8 +13,7 @@ const Home = ({ businesses }: { businesses: Business[] }) => {
         <title>{siteTitle}</title>
       </Head>
 
-      <CardsList businesses={businesses} />
-      <Map />
+      <Map businesses={businesses} />
     </Layout>
   );
 };

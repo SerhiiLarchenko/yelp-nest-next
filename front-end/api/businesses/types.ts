@@ -3,7 +3,7 @@ export interface Category {
   title: string;
 }
 
-interface Coordinates {
+export interface Coordinates {
   latitude: number;
   longitude: number;
 }
