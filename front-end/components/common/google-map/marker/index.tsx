@@ -5,7 +5,9 @@ import { MarkerProps } from './types';
 const Marker = ({ id, url, isCardHovered }: MarkerProps) => {
   return (
     <LinkTo href={`/business/${id}`}>
-      <S.Marker url={url} isCardHovered={isCardHovered} />
+      <S.OuterMarker isCardHovered={isCardHovered}>
+        <S.InnerMarker url={url} />
+      </S.OuterMarker>
     </LinkTo>
   );
 };
