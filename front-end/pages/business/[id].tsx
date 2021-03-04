@@ -6,8 +6,6 @@ import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
 
-import * as S from './styles';
-
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
     <S.BusinessWrapper>
@@ -26,10 +24,10 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const businesses = await API.businesses.getAllBusinesses();
-    const matched = businesses.find((business) => business.id === id);
+    const matched = businesses.find((business) => business.id === params?.id);
 
     const business = await API.businesses.getBusiness(matched?.id);
 

@@ -5,6 +5,12 @@ import { GoogleMapProps } from './types';
 import * as S from './styles';
 import { mapOptions } from './config';
 
+declare global {
+  interface Window {
+    google: any;
+  }
+}
+
 const GoogleMap = ({
   size,
   item,
@@ -12,7 +18,7 @@ const GoogleMap = ({
   onChildMouseEnter,
   onChildMouseLeave,
 }: GoogleMapProps) => {
-  const handleApiLoaded = (map) => {
+  const handleApiLoaded = (map: any) => {
     const bounds = new window.google.maps.LatLngBounds();
 
     if (Array.isArray(item)) {
