@@ -4,6 +4,7 @@ const Container = styled.div`
   display: grid;
   grid-row-gap: 40px;
   margin-bottom: 40px;
+  grid-area: info;
 `;
 
 const Header = styled.header`
@@ -13,6 +14,12 @@ const Header = styled.header`
     position: absolute;
     left: -56px;
     top: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    & > a {
+      left: -32px;
+    }
   }
 `;
 
@@ -24,10 +31,20 @@ const ServiceInfo = styled.div`
   border-radius: 4px;
   max-width: 498px;
   padding: 16px 24px;
+
+  @media (max-width: 910px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 572px) {
+    padding: 9px;
+  }
 `;
 
 const ServiceInfoItem = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
 
   .home-icon,
   .smartphone-icon,
@@ -45,7 +62,6 @@ const ServiceInfoItem = styled.div`
 `;
 
 const Address = styled.address`
-  width: 220px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -76,6 +92,20 @@ const WorkingHours = styled.p`
 const WorkingHoursWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 572px) {
+    width: 60%;
+  }
+`;
+
+const AddressWrapper = styled.div`
+  display: flex;
+
+  @media (max-width: 572px) {
+    margin-bottom: 11px;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
 `;
 
 export {
@@ -90,4 +120,5 @@ export {
   ServiceInfoItem,
   TransactionsList,
   WorkingHoursWrapper,
+  AddressWrapper,
 };
