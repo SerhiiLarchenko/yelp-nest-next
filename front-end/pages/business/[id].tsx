@@ -16,7 +16,7 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
       </Head>
 
       <CompanyInfo business={business} />
-      <Reviews reviews={business.reviews} />
+      <Reviews url={business.url} reviews={business.reviews} />
 
       <SliderMapWrapper>
         <ImageSlider photos={business.photos} />

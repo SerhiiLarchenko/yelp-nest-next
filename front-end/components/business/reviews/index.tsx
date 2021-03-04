@@ -5,7 +5,7 @@ import { ReviewComment } from 'components/common/review-comment';
 
 import * as S from './styles';
 
-const Reviews = ({ reviews }: { reviews: UserReview[] }) => (
+const Reviews = ({ reviews, url }: { url: string; reviews: UserReview[] }) => (
   <S.Container>
     <S.Title>Top Reviews</S.Title>
 
@@ -21,7 +21,7 @@ const Reviews = ({ reviews }: { reviews: UserReview[] }) => (
       ))}
     </ul>
 
-    <OpenButton iconPosition="right">
+    <OpenButton as="a" href={url} target="_blank" iconPosition="right">
       <span>Show All Reviews</span>
       <Icon icon="view" />
     </OpenButton>
