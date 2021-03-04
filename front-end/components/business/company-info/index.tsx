@@ -42,10 +42,13 @@ const CompanyInfo = ({
 
     <S.ServiceInfo>
       <S.ServiceInfoItem>
-        <Icon icon="home" />
-        <S.Address title={location.display_address}>
-          {location.display_address}
-        </S.Address>
+        <S.AddressWrapper>
+          <Icon icon="home" />
+          <S.Address title={location.display_address}>
+            {location.display_address}
+          </S.Address>
+        </S.AddressWrapper>
+
         <S.TransactionsList>
           {transactions.map((item, i) => (
             // eslint-disable-next-line react/no-array-index-key

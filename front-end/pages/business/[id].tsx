@@ -1,29 +1,28 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { REVALIDATION_TIME } from 'config/styles/limits';
 
 import { API } from 'api';
 import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
-import { StyledInfoWrapper } from 'components/common/wrappers';
+import { BusinessWrapper, SliderMapWrapper } from 'components/common/wrappers';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
-    <>
+    <BusinessWrapper>
       <Head>
-        <title>{business.name}</title>
+        <title>{`Restaurants - ${business.name}`}</title>
       </Head>
 
-      <StyledInfoWrapper>
-        <CompanyInfo business={business} />
-        <Reviews reviews={business.reviews} />
-      </StyledInfoWrapper>
+      <CompanyInfo business={business} />
+      <Reviews reviews={business.reviews} />
 
-      <div>
+      <SliderMapWrapper>
         <ImageSlider photos={business.photos} />
         <GoogleMap size="small" item={business} />
-      </div>
-    </>
+      </SliderMapWrapper>
+    </BusinessWrapper>
   );
 };
 
@@ -36,14 +35,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
       props: { business, serverSide: true },
-      revalidate: 3600,
+      revalidate: REVALIDATION_TIME,
     };
   } catch (e) {
     console.error(e);
 
     return {
       props: { business: {}, serverSide: true },
-      revalidate: 3600,
+      revalidate: REVALIDATION_TIME,
     };
   }
 };

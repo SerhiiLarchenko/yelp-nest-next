@@ -3,14 +3,14 @@ import { GetStaticProps } from 'next';
 
 import { API } from 'api';
 import { Map } from 'components/home';
-import { siteTitle } from 'components/common';
 import { Business } from 'api/businesses/types';
+import { REVALIDATION_TIME } from 'config/styles/limits';
 
 const Home = ({ businesses }: { businesses: Business[] }) => {
   return (
     <>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Restaurants - The Catalog</title>
       </Head>
 
       <Map businesses={businesses} />
@@ -27,12 +27,14 @@ export const getStaticProps: GetStaticProps = async () => {
         businesses,
         serverSide: true,
       },
+      revalidate: REVALIDATION_TIME,
     };
   } catch (e) {
     console.error(e);
 
     return {
       props: { businesses: {}, serverSide: true },
+      revalidate: REVALIDATION_TIME,
     };
   }
 };

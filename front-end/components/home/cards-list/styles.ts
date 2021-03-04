@@ -8,6 +8,7 @@ const StyledCardsList = styled.ul`
   top: 96px;
   bottom: 0;
   padding: 20px;
+  margin-bottom: 40px;
 
   @media (max-width: 1024px) {
     position: static;
