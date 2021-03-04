@@ -95,19 +95,6 @@ const RatingWrapper = styled.div`
   display: flex;
 `;
 
-const WorkingHours = styled.p`
-  width: 100%;
-`;
-
-const WorkingHoursWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 572px) {
-    width: 60%;
-  }
-`;
-
 const AddressWrapper = styled.div`
   display: flex;
 
@@ -129,10 +116,8 @@ export {
   ServiceInfo,
   AdressInner,
   RatingNumber,
-  WorkingHours,
   RatingWrapper,
   AddressWrapper,
   ServiceInfoItem,
   TransactionsList,
-  WorkingHoursWrapper,
 };

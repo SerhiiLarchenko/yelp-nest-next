@@ -30,7 +30,7 @@ export enum WeekDays {
   Sun,
 }
 
-interface DayWorkingHours {
+export interface DayWorkingHours {
   break_end: string;
   break_start: string;
   days: WeekDays[];
