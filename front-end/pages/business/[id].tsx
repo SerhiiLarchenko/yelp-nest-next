@@ -6,12 +6,11 @@ import { API } from 'api';
 import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
-
-import * as S from './styles';
+import { BusinessWrapper, SliderMapWrapper } from 'components/common/wrappers';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
-    <S.BusinessWrapper>
+    <BusinessWrapper>
       <Head>
         <title>{`Restaurants - ${business.name}`}</title>
       </Head>
@@ -19,11 +18,11 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
       <CompanyInfo business={business} />
       <Reviews reviews={business.reviews} />
 
-      <S.SliderMapWrapper>
+      <SliderMapWrapper>
         <ImageSlider photos={business.photos} />
         <GoogleMap size="small" item={business} />
-      </S.SliderMapWrapper>
-    </S.BusinessWrapper>
+      </SliderMapWrapper>
+    </BusinessWrapper>
   );
 };
 
