@@ -42,19 +42,21 @@ const CompanyInfo = ({
 
     <S.ServiceInfo>
       <S.ServiceInfoItem>
-        <S.AddressWrapper>
-          <Icon icon="home" />
-          <S.Address title={location.display_address}>
-            {location.display_address}
-          </S.Address>
-        </S.AddressWrapper>
+        <S.AdressInner>
+          <S.AddressWrapper>
+            <Icon icon="home" />
+            <S.Address title={location.display_address}>
+              {location.display_address}
+            </S.Address>
+          </S.AddressWrapper>
 
-        <S.TransactionsList>
-          {transactions.map((item, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TransactionLabel key={i}>{item}</TransactionLabel>
-          ))}
-        </S.TransactionsList>
+          <S.TransactionsList>
+            {transactions.map((item, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <TransactionLabel key={i}>{item}</TransactionLabel>
+            ))}
+          </S.TransactionsList>
+        </S.AdressInner>
       </S.ServiceInfoItem>
       <S.ServiceInfoItem>
         <Icon icon="smartphone" />

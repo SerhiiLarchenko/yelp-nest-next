@@ -23,11 +23,14 @@ const StyledCardsList = styled.ul`
   @media (max-width: 750px) {
     grid-template-columns: auto;
     justify-content: center;
+    padding: 0;
+    padding-right: 20px;
   }
 
   @media (max-width: 550px) {
     max-height: 100%;
     overflow: initial;
+    padding-right: 0;
   }
 `;
 

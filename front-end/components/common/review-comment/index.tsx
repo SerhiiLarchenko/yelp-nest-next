@@ -8,7 +8,7 @@ const ReviewComment = ({ user, text, rating, timeCreated }: ReviewProps) => {
   return (
     <S.Container>
       <S.UserInfo>
-        <S.Avatar src={imageUrl} />
+        <S.Avatar src={imageUrl || '/images/avatar-placeholder.png'} />
         <S.Column>
           <S.NickName>{name}</S.NickName>
 
