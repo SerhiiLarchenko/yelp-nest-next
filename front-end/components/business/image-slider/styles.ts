@@ -66,21 +66,9 @@ const SliderWrapper = styled.div`
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 670px) {
     & .slick-slider {
-      width: 85vw;
-    }
-  }
-
-  @media (max-width: 530px) {
-    & .slick-slider {
-      width: 80vw;
-    }
-  }
-
-  @media (max-width: 400px) {
-    & .slick-slider {
-      width: 78vw;
+      width: 87vw;
     }
   }
 `;
