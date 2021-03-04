@@ -15,8 +15,8 @@ const Card = ({
   return (
     <S.Card
       isHoveredMarker={isHoveredMarker}
-      onMouseEnter={() => setHoveredItem(id)}
-      onMouseLeave={() => setHoveredItem(undefined)}
+      onMouseEnter={() => setHoveredItem && setHoveredItem(id)}
+      onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
     >
       <LinkTo href={`/business/${id}`}>
         <S.Image imageUrl={imageUrl} />

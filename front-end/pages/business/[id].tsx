@@ -5,8 +5,7 @@ import { API } from 'api';
 import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
-
-import * as S from './styles';
+import { StyledInfoWrapper } from 'components/common/wrappers';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
@@ -15,10 +14,10 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
         <title>{business.name}</title>
       </Head>
 
-      <S.InfoWrapper>
+      <StyledInfoWrapper>
         <CompanyInfo business={business} />
         <Reviews reviews={business.reviews} />
-      </S.InfoWrapper>
+      </StyledInfoWrapper>
 
       <div>
         <ImageSlider photos={business.photos} />
@@ -28,10 +27,10 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const businesses = await API.businesses.getAllBusinesses();
-    const matched = businesses.find((business) => business.id === id);
+    const matched = businesses.find((business) => business.id === params?.id);
 
     const business = await API.businesses.getBusiness(matched?.id);
 
