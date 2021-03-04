@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { REVALIDATION_TIME } from 'config/styles/limits';
 
 import { API } from 'api';
 import { GoogleMap } from 'components/common';
@@ -35,14 +36,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
       props: { business, serverSide: true },
-      revalidate: 3600,
+      revalidate: REVALIDATION_TIME,
     };
   } catch (e) {
     console.error(e);
 
     return {
       props: { business: {}, serverSide: true },
-      revalidate: 3600,
+      revalidate: REVALIDATION_TIME,
     };
   }
 };
