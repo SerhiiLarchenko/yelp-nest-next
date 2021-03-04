@@ -7,8 +7,8 @@ const hoverStyles = css`
 const OuterMarker = styled.div<{ isCardHovered?: boolean }>`
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 55px;
-  height: 55px;
+  width: 56px;
+  height: 56px;
   border-radius: 100%;
   background-color: transparent;
   user-select: none;
