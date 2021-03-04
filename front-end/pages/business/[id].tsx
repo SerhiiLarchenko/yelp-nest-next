@@ -5,25 +5,24 @@ import { API } from 'api';
 import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
-import { StyledInfoWrapper } from 'components/common/wrappers';
+
+import * as S from './styles';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
-    <>
+    <S.BusinessWrapper>
       <Head>
         <title>{`Restaurants - ${business.name}`}</title>
       </Head>
 
-      <StyledInfoWrapper>
-        <CompanyInfo business={business} />
-        <Reviews reviews={business.reviews} />
-      </StyledInfoWrapper>
+      <CompanyInfo business={business} />
+      <Reviews reviews={business.reviews} />
 
-      <div>
+      <S.SliderMapWrapper>
         <ImageSlider photos={business.photos} />
         <GoogleMap size="small" item={business} />
-      </div>
-    </>
+      </S.SliderMapWrapper>
+    </S.BusinessWrapper>
   );
 };
 

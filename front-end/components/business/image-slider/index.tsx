@@ -1,5 +1,4 @@
 import Slider from 'react-slick';
-import { v4 as uuidv4 } from 'uuid';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,7 +11,7 @@ const ImageSlider = ({ photos }: { photos: string[] }) => {
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Slider {...settings}>
         {photos.map((photo) => (
-          <img key={uuidv4()} src={photo} alt="Slider item" />
+          <img key={photo} src={photo} alt="Slider item" />
         ))}
       </Slider>
     </S.SliderWrapper>
