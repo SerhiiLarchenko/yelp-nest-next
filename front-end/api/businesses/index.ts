@@ -1,10 +1,10 @@
 import { axios } from '../axios';
-import { Business } from './types';
+import { Business, ExtendedBusiness } from './types';
 
 const getAllBusinesses = () =>
   axios.get<Business[]>('/business/all').then(({ data }) => data);
 
-// const getBusiness = (id: string) =>
-//   axios.get<Business>(`/business/${id}`).then(({ data }) => data);
+const getBusiness = (id: string | string[] | undefined) =>
+  axios.get<ExtendedBusiness>(`/business/${id}`).then(({ data }) => data);
 
-export { getAllBusinesses };
+export { getAllBusinesses, getBusiness };

@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
+import { Layout } from 'components/common';
 import { LIGHT_THEME } from 'config/styles/themes';
 
 import { GlobalStyles } from 'styles/global';
@@ -10,7 +11,9 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={LIGHT_THEME}>
       <GlobalStyles />
       {/* eslint-disable react/jsx-props-no-spreading */}
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   );
 };

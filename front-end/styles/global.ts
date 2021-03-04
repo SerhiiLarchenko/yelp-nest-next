@@ -8,6 +8,13 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
       line-height: 24px;
+      font-weight: 500;
+      font-size: 16px;
+
+      ${(p) => css`
+        background-color: ${p.theme.colors.background};
+        color: ${p.theme.colors.text.basic};
+      `}
     }
 
     *, *::after, *::before {
@@ -26,10 +33,10 @@ const GlobalStyles = createGlobalStyle`
 
     body {
       padding: 0 80px;
-      ${(p) => css`
-        background-color: ${p.theme.colors.background};
-        color: ${p.theme.colors.text.basic};
-      `}
+
+      @media (max-width: 1024px) {
+        padding: 0 40px 40px;
+      }
     }
 
     a {
@@ -41,7 +48,13 @@ const GlobalStyles = createGlobalStyle`
       list-style-type: none;
     }
 
+h1 {
+font: bold 48px / 56px "Inter";
+margin: 0px;
+}
+
     button {
+      outline: none;
       border: none;
       background-color: inherit;
     }

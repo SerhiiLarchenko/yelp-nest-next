@@ -3,18 +3,18 @@ import { GetStaticProps } from 'next';
 
 import { API } from 'api';
 import { Map } from 'components/home';
-import { Layout, siteTitle } from 'components/common';
+import { siteTitle } from 'components/common';
 import { Business } from 'api/businesses/types';
 
 const Home = ({ businesses }: { businesses: Business[] }) => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
 
       <Map businesses={businesses} />
-    </Layout>
+    </>
   );
 };
 

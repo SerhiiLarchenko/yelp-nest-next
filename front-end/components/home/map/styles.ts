@@ -1,8 +1,21 @@
 import styled from 'styled-components';
 
-const MapWrapper = styled.div`
-  height: 810px;
+const HomeWrapper = styled.div`
+  display: flex;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
-export { MapWrapper };
+const Wrapper = styled.div`
+  margin-left: 415px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+`;
+
+export { Wrapper, HomeWrapper };
