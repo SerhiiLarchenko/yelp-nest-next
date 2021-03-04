@@ -8,7 +8,6 @@ import * as S from './styles';
 const Reviews = ({ reviews, url }: { url: string; reviews: UserReview[] }) => (
   <S.Container>
     <S.Title>Top Reviews</S.Title>
-
     <ul>
       {reviews.map(({ user, text, rating, time_created }) => (
         <ReviewComment
