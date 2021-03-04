@@ -11,7 +11,7 @@ const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
     <>
       <Head>
-        <title>{business.name}</title>
+        <title>{`Restaurants - ${business.name}`}</title>
       </Head>
 
       <StyledInfoWrapper>

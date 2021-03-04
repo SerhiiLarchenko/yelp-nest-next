@@ -3,14 +3,13 @@ import { GetStaticProps } from 'next';
 
 import { API } from 'api';
 import { Map } from 'components/home';
-import { siteTitle } from 'components/common';
 import { Business } from 'api/businesses/types';
 
 const Home = ({ businesses }: { businesses: Business[] }) => {
   return (
     <>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Restaurants - The Catalog</title>
       </Head>
 
       <Map businesses={businesses} />
