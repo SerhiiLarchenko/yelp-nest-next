@@ -4,6 +4,7 @@ import NextNprogress from 'nextjs-progressbar';
 
 import { Layout } from 'components/common';
 import { LIGHT_THEME } from 'config/styles/themes';
+import { COLORS } from 'config/styles/colors';
 
 import { GlobalStyles } from 'styles/global';
 
@@ -12,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={LIGHT_THEME}>
       <GlobalStyles />
       {/* eslint-disable react/jsx-props-no-spreading */}
-      <NextNprogress color="#e32636" />
+      <NextNprogress color={COLORS.primary} />
       <Layout>
         <Component {...pageProps} />
       </Layout>
