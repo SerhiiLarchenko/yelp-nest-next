@@ -6,6 +6,8 @@ import { GoogleMap } from 'components/common';
 import { CompanyInfo, Reviews, ImageSlider } from 'components/business';
 import { ExtendedBusiness } from 'api/businesses/types';
 
+import * as S from './styles';
+
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
     <S.BusinessWrapper>
