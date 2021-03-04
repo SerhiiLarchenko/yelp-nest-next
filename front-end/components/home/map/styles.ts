@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   @media (max-width: 1024px) {
     margin-left: 0;
   }
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `;
 
 export { Wrapper, HomeWrapper };
