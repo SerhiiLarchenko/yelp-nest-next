@@ -9,7 +9,7 @@ const CardsList = ({
 }: CardsListProps) => {
   return (
     <StyledCardsList>
-      {businesses.map(
+      {businesses?.map(
         ({ id, name, categories, rating, review_count, image_url }) => (
           <Card
             isHoveredMarker={hoveredItem === id}
