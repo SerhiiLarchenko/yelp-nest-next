@@ -5,6 +5,10 @@ const MapWrapper = styled.div<{ size: 'large' | 'small' }>`
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    max-height: 419px;
+  }
 `;
 
 export { MapWrapper };

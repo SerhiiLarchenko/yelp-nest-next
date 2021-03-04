@@ -73,6 +73,11 @@ const WorkingHours = styled.p`
   width: 100%;
 `;
 
+const WorkingHoursWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export {
   Header,
   Address,
@@ -84,4 +89,5 @@ export {
   RatingWrapper,
   ServiceInfoItem,
   TransactionsList,
+  WorkingHoursWrapper,
 };

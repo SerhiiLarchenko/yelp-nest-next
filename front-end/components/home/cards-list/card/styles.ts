@@ -43,6 +43,10 @@ const Card = styled.li<{ isHoveredMarker: boolean }>`
 
   @media (max-width: 1024px) {
     max-width: 395px;
+
+    :not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 `;
 

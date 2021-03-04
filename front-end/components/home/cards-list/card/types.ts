@@ -8,5 +8,5 @@ export interface CardProps {
   reviewCount: number;
   imageUrl: string;
   isHoveredMarker: boolean;
-  setHoveredItem(id?: string): void;
+  setHoveredItem?(id?: string): void;
 }

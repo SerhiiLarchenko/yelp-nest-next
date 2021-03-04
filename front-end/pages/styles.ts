@@ -6,11 +6,15 @@ const GlobalStyles = createGlobalStyle`
 
     html {
       box-sizing: border-box;
-      color: #040C35;
       font-family: 'Inter', sans-serif;
       line-height: 24px;
       font-weight: 500;
       font-size: 16px;
+
+      ${(p) => css`
+        background-color: ${p.theme.colors.background};
+        color: ${p.theme.colors.text.basic};
+      `}
     }
 
     *, *::after, *::before {
@@ -29,13 +33,9 @@ const GlobalStyles = createGlobalStyle`
 
     body {
       padding: 0 80px;
-      ${(p) => css`
-        background-color: ${p.theme.colors.background};
-        color: ${p.theme.colors.text.basic};
-      `}
 
       @media (max-width: 1024px) {
-        padding: 0 40px;
+        padding: 0 40px 40px;
       }
     }
 

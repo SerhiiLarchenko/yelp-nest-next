@@ -6,7 +6,6 @@ import { Icon } from 'components/common/icon';
 import { LinkTo, Rating } from 'components/common';
 import { ExtendedBusiness } from 'api/businesses/types';
 
-import { weekDays } from './helpers';
 import * as S from './styles';
 
 const CompanyInfo = ({
@@ -61,14 +60,13 @@ const CompanyInfo = ({
       </S.ServiceInfoItem>
       <S.ServiceInfoItem>
         <Icon icon="clock" />
-        <S.WorkingHours>
-          {working_hours.map(
-            ({ end, start, days }) =>
-              `${start} - ${end} (${days
-                .map((day) => weekDays[day])
-                .join(', ')})`
-          )}
-        </S.WorkingHours>
+        <S.WorkingHoursWrapper>
+          {working_hours.map(({ end, start, days }) => (
+            <S.WorkingHours key={uuidv4()}>
+              {`${start} - ${end} (${days.map((day) => day).join(', ')})`}
+            </S.WorkingHours>
+          ))}
+        </S.WorkingHoursWrapper>
       </S.ServiceInfoItem>
     </S.ServiceInfo>
 

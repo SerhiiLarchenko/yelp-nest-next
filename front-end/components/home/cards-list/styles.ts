@@ -7,14 +7,26 @@ const StyledCardsList = styled.ul`
   overflow-x: hidden;
   top: 96px;
   bottom: 0;
-  padding: 0 20px;
+  padding: 20px;
 
   @media (max-width: 1024px) {
-    width: 95%;
+    position: static;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-height: 432px;
+    max-height: 325px;
     grid-gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 750px) {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+
+  @media (max-width: 550px) {
+    max-height: 100%;
+    overflow: initial;
   }
 `;
 
