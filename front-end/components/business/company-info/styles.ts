@@ -37,14 +37,12 @@ const ServiceInfo = styled.div`
   }
 
   @media (max-width: 572px) {
-    padding: 9px;
+    padding: 16px 9px;
   }
 `;
 
 const ServiceInfoItem = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
 
   .home-icon,
   .smartphone-icon,
@@ -64,13 +62,18 @@ const ServiceInfoItem = styled.div`
 const Address = styled.address`
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
   margin-right: 8px;
   font-style: initial;
+  width: 100%;
+
+  @media (max-width: 572px) {
+    width: 50%;
+  }
 `;
 
 const TransactionsList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const RatingNumber = styled.span`
@@ -100,12 +103,6 @@ const WorkingHoursWrapper = styled.div`
 
 const AddressWrapper = styled.div`
   display: flex;
-
-  @media (max-width: 572px) {
-    margin-bottom: 11px;
-    flex-wrap: wrap;
-    max-width: 100%;
-  }
 `;
 
 export {
