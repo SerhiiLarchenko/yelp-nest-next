@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 import { UserReview } from 'api/businesses/types';
 import { OpenButton } from 'components/common/buttons';
 import { Icon } from 'components/common/icon';
@@ -14,7 +12,7 @@ const Reviews = ({ reviews }: { reviews: UserReview[] }) => (
     <ul>
       {reviews.map(({ user, text, rating, time_created }) => (
         <ReviewComment
-          key={uuidv4()}
+          key={text}
           user={user}
           text={text}
           rating={rating}

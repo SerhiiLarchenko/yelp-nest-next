@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 import { Icon } from '../icon';
 import * as S from './styles';
 
@@ -13,7 +11,8 @@ const Rating = ({ rating }: { rating: number }) => {
   return (
     <S.RatingList>
       {[...filledStars, ...emptyStars].map((icon, i) => (
-        <S.RatingItem key={uuidv4()}>{icon}</S.RatingItem>
+        // eslint-disable-next-line react/no-array-index-key
+        <S.RatingItem key={i}>{icon}</S.RatingItem>
       ))}
     </S.RatingList>
   );
