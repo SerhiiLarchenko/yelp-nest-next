@@ -13,7 +13,7 @@ const Map = ({ businesses }: { businesses: Business[] }) => {
       <CardsList businesses={businesses} />
       <S.MapWrapper>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
+          bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY as string }}
           defaultCenter={{
             lat: businesses[0].coordinates.latitude,
             lng: businesses[0].coordinates.longitude,
