@@ -15,10 +15,6 @@ const Card = styled.li<{ isHoveredMarker: boolean }>`
     margin-bottom: 24px;
   }
 
-  :hover {
-    ${hoverStyles}
-  }
-
   ${(p) => css`
     transition: ${p.theme.transition.default};
     border-color: ${p.theme.colors.border.card.default};
@@ -41,8 +37,14 @@ const Card = styled.li<{ isHoveredMarker: boolean }>`
     }
   }
 
+  @media (min-width: 768px) {
+    :hover {
+      ${hoverStyles}
+    }
+  }
+
   @media (max-width: 1024px) {
-    max-width: 395px;
+    /* max-width: 395px; */
 
     :not(:last-child) {
       margin-bottom: 0;
