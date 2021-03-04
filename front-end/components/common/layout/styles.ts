@@ -6,6 +6,7 @@ const Header = styled.header`
   ${flex.alignCenter}
   min-height: 96px;
   margin-bottom: 24px;
+  padding-left: 20px;
 `;
 
 const Main = styled.main`
