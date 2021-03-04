@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 import { TransactionLabel } from 'components/common/labels';
 import { OpenButton } from 'components/common/buttons';
 import { Icon } from 'components/common/icon';
@@ -49,8 +47,9 @@ const CompanyInfo = ({
           {location.display_address}
         </S.Address>
         <S.TransactionsList>
-          {transactions.map((item) => (
-            <TransactionLabel key={uuidv4()}>{item}</TransactionLabel>
+          {transactions.map((item, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <TransactionLabel key={i}>{item}</TransactionLabel>
           ))}
         </S.TransactionsList>
       </S.ServiceInfoItem>
@@ -61,8 +60,9 @@ const CompanyInfo = ({
       <S.ServiceInfoItem>
         <Icon icon="clock" />
         <S.WorkingHoursWrapper>
-          {working_hours.map(({ end, start, days }) => (
-            <S.WorkingHours key={uuidv4()}>
+          {working_hours.map(({ end, start, days }, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <S.WorkingHours key={i}>
               {`${start} - ${end} (${days.map((day) => day).join(', ')})`}
             </S.WorkingHours>
           ))}
