@@ -1,95 +1,70 @@
 import { Prop } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { DayWorkingHoursClass } from './day-working-hours.class';
 
 export class BusinessWorkingHoursClass {
   @ApiProperty({
-    type: () => DayWorkingHoursClass,
+    type: String,
+    isArray: true,
     required: true,
-    description: 'Schaddule for Sunday',
+    example: ['Mon', 'Tue', 'Wed'],
+    description: 'Days of week',
   })
   @Prop({
-    type: () => DayWorkingHoursClass,
+    type: () => [String],
     required: true,
+    default: null,
   })
-  sun: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Monday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  mon: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Tuesday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  tue: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Wednesday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  wed: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Thursday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  thu: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Friday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  fri: DayWorkingHoursClass;
-
-  @ApiProperty({
-    type: () => DayWorkingHoursClass,
-    required: true,
-    description: 'Schaddule for Saturday',
-  })
-  @Prop({
-    type: () => DayWorkingHoursClass,
-    required: true,
-  })
-  sat: DayWorkingHoursClass;
+  days: string[];
 
   @ApiProperty({
     type: String,
     required: true,
-    example: 'REGULAR',
-    description: 'Type of the business work',
+    example: '6:00AM',
+    description: 'When business start working',
   })
   @Prop({
     type: String,
     required: true,
-    default: '',
+    default: null,
   })
-  hours_type: string;
+  start: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+    example: '11:00PM',
+    description: 'When business stop working',
+  })
+  @Prop({
+    type: String,
+    required: true,
+    default: null,
+  })
+  end: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+    example: '1:00PM',
+    description: 'When business break',
+  })
+  @Prop({
+    type: String,
+    required: true,
+    default: null,
+  })
+  break_start: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+    example: '2:00PM',
+    description: 'When business break finish',
+  })
+  @Prop({
+    type: String,
+    required: true,
+    default: null,
+  })
+  break_end: string;
 }

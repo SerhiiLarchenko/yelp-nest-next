@@ -237,16 +237,16 @@ export class Business extends mongoose.Document {
   distance: number;
 
   @ApiProperty({
-    type: () => BusinessWorkingHoursClass,
+    type: () => [BusinessWorkingHoursClass],
     required: true,
     description: 'Working hours',
   })
   @Prop({
-    type: () => BusinessWorkingHoursClass,
+    type: () => [BusinessWorkingHoursClass],
     required: true,
-    default: {},
+    default: [],
   })
-  working_hours: BusinessWorkingHoursClass;
+  working_hours: BusinessWorkingHoursClass[];
 
   @ApiProperty({
     type: () => [UserReviewClass],
