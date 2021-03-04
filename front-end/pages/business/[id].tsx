@@ -10,21 +10,19 @@ import * as S from './styles';
 
 const Business = ({ business }: { business: ExtendedBusiness }) => {
   return (
-    <>
+    <S.BusinessWrapper>
       <Head>
         <title>{business.name}</title>
       </Head>
 
-      <S.InfoWrapper>
-        <CompanyInfo business={business} />
-        <Reviews reviews={business.reviews} />
-      </S.InfoWrapper>
+      <CompanyInfo business={business} />
+      <Reviews reviews={business.reviews} />
 
-      <div>
+      <S.SliderMapWrapper>
         <ImageSlider photos={business.photos} />
         <GoogleMap size="small" item={business} />
-      </div>
-    </>
+      </S.SliderMapWrapper>
+    </S.BusinessWrapper>
   );
 };
 
