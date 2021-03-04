@@ -1,13 +1,17 @@
 import GoogleMapReact from 'google-map-react';
-import { v4 as uuidv4 } from 'uuid';
 
 import { Marker } from './marker';
-
 import { GoogleMapProps } from './types';
 import * as S from './styles';
 import { mapOptions } from './config';
 
-const GoogleMap = ({ size, item }: GoogleMapProps) => {
+const GoogleMap = ({
+  size,
+  item,
+  hoveredItem,
+  onChildMouseEnter,
+  onChildMouseLeave,
+}: GoogleMapProps) => {
   const handleApiLoaded = (map) => {
     const bounds = new window.google.maps.LatLngBounds();
 
@@ -43,18 +47,23 @@ const GoogleMap = ({ size, item }: GoogleMapProps) => {
           options={mapOptions}
           onGoogleApiLoaded={({ map }) => handleApiLoaded(map)}
           yesIWantToUseGoogleMapApiInternals
+          onChildMouseEnter={onChildMouseEnter}
+          onChildMouseLeave={onChildMouseLeave}
         >
           {Array.isArray(item) ? (
-            item.map(({ image_url, coordinates }) => (
+            item.map(({ image_url, coordinates, id }) => (
               <Marker
-                key={uuidv4()}
+                key={id}
+                id={id}
                 url={image_url}
                 lat={coordinates.latitude}
                 lng={coordinates.longitude}
+                isCardHovered={hoveredItem === id}
               />
             ))
           ) : (
             <Marker
+              id={item.id}
               url={item.image_url}
               lat={item.coordinates.latitude}
               lng={item.coordinates.longitude}

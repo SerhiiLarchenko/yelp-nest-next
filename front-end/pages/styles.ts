@@ -28,11 +28,15 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      padding: 0 80px 80px;
+      padding: 0 80px;
       ${(p) => css`
         background-color: ${p.theme.colors.background};
         color: ${p.theme.colors.text.basic};
       `}
+
+      @media (max-width: 1024px) {
+        padding: 0 40px;
+      }
     }
 
     a {

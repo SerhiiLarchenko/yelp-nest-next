@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Marker = styled.div<{ url: string }>`
+const hoverStyles = css`
+  transform: translate(-50%, -50%) scale(1.2);
+`;
+
+const Marker = styled.div<{ url: string; isCardHovered?: boolean }>`
+  position: absolute;
+  transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -8,19 +14,18 @@ const Marker = styled.div<{ url: string }>`
   background-image: url(${(p) => p.url});
   background-size: cover;
   cursor: pointer;
-  z-index: 1;
+  border: 2px solid ${(p) => p.theme.colors.primary};
+  transition: ${(p) => p.theme.transition.default};
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(180deg, #fc9da2 0%, #ce464d 100%);
-    border-radius: 100%;
-    z-index: -1;
+  :hover {
+    ${hoverStyles}
   }
+
+  ${(p) =>
+    p.isCardHovered &&
+    css`
+      ${hoverStyles}
+    `}
 `;
 
 export { Marker };

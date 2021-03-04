@@ -9,9 +9,15 @@ const Card = ({
   categories,
   reviewCount,
   id,
+  isHoveredMarker,
+  setHoveredItem,
 }: CardProps) => {
   return (
-    <S.Card>
+    <S.Card
+      isHoveredMarker={isHoveredMarker}
+      onMouseEnter={() => setHoveredItem(id)}
+      onMouseLeave={() => setHoveredItem(undefined)}
+    >
       <LinkTo href={`/business/${id}`}>
         <S.Image imageUrl={imageUrl} />
 

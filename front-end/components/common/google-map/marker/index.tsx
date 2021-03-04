@@ -1,9 +1,13 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable react/destructuring-assignment */
+import { LinkTo } from 'components/common/link-to';
 import * as S from './styles';
+import { MarkerProps } from './types';
 
-const Marker = (props: { url: string; lat: number; lng: number }) => {
-  return <S.Marker url={props.url} />;
+const Marker = ({ id, url, isCardHovered }: MarkerProps) => {
+  return (
+    <LinkTo href={`/business/${id}`}>
+      <S.Marker url={url} isCardHovered={isCardHovered} />
+    </LinkTo>
+  );
 };
 
 export { Marker };

@@ -1,26 +1,34 @@
 import styled, { css } from 'styled-components';
 
-const Card = styled.li`
+const hoverStyles = css`
+  transform: translateX(10px);
+  border-color: ${(p) => p.theme.colors.border.card.hover};
+`;
+
+const Card = styled.li<{ isHoveredMarker: boolean }>`
   box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   cursor: pointer;
+  border: 1px solid;
 
   :not(:last-child) {
     margin-bottom: 24px;
   }
 
   :hover {
-    transform: translateX(5px);
+    ${hoverStyles}
   }
 
   ${(p) => css`
     transition: ${p.theme.transition.default};
-    border: 1px solid ${p.theme.colors.border.card.default};
-
-    :hover {
-      border-color: ${p.theme.colors.border.card.hover};
-    }
+    border-color: ${p.theme.colors.border.card.default};
   `}
+
+  ${(p) =>
+    p.isHoveredMarker &&
+    css`
+      ${hoverStyles}
+    `}
 
   & > a {
     display: flex;
@@ -31,6 +39,10 @@ const Card = styled.li`
     path {
       fill: ${(p) => p.theme.colors.primary};
     }
+  }
+
+  @media (max-width: 1024px) {
+    max-width: 395px;
   }
 `;
 
