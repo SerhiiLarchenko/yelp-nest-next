@@ -68,7 +68,11 @@ const CompanyInfo = ({
           {working_hours.map(({ end, start, days }, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <S.WorkingHours key={i}>
-              {`${start} - ${end} (${days.map((day) => day).join(', ')})`}
+              {`${start} - ${end} (${
+                days.length === 7
+                  ? 'All days'
+                  : days.map((day) => day).join(', ')
+              })`}
             </S.WorkingHours>
           ))}
         </S.WorkingHoursWrapper>
