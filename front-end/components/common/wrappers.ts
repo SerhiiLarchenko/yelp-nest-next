@@ -7,6 +7,7 @@ const BusinessWrapper = styled.div`
     'info slider'
     'reviews slider';
   grid-column-gap: 80px;
+  padding-bottom: 80px;
 
   @media (max-width: 910px) {
     grid-template-columns: auto;
