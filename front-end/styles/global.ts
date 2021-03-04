@@ -53,6 +53,10 @@ const GlobalStyles = createGlobalStyle`
       @media (max-width: 1024px) {
         padding: 0 40px 40px;
       }
+
+      @media (max-width: 550px) {
+        padding: 0 24px 24px;
+      }
     }
 
     a {

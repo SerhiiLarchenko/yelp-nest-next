@@ -12,7 +12,7 @@ const TransactionLabel = styled.li`
   line-height: 16px;
   color: #72758a;
   text-transform: capitalize;
-  max-height: 22px;
+  height: 24px;
 
   :not(:last-child) {
     margin-right: 8px;

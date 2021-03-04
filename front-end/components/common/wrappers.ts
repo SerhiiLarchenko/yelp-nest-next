@@ -15,6 +15,7 @@ const BusinessWrapper = styled.div`
       'info'
       'slider'
       'reviews';
+    padding-bottom: 0;
   }
 `;
 
